@@ -20,7 +20,7 @@ export const ContactForm = () => {
 
   const onSubmit: SubmitHandler<FormData> = async (data) => {
     try {
-      console.log(process.env.VERCEL_API_URL);
+      console.log(process.env.VERCEL_API_URL, "Hola?");
       
       const res = await axios.post(
         `${process.env.VERCEL_API_URL}/api/sendEmailToOwner`,
