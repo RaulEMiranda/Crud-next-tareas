@@ -5,6 +5,9 @@ export async function POST(req: NextRequest, res: NextResponse) {
   try {
     const { email, name, message } = await req.json();
 
+    console.log("Enviando email");
+    
+
     await sendEmail({
       to: process.env.NODEMAILER_EMAIL || "rauledmore98@outlook.com",
       subject: "Mensaje Automático de Ordena tus Ideas",
@@ -22,6 +25,9 @@ export async function POST(req: NextRequest, res: NextResponse) {
       </div>
     </div>`,
     });
+
+    console.log("Email Enviado");
+    
 
     return NextResponse.json("Correo electrónico enviado correctamente", {
       status: 200,
