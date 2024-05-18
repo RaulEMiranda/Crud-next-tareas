@@ -23,7 +23,14 @@ export async function POST(req: NextRequest, res: NextResponse) {
     </div>`,
     });
 
-    return NextResponse.json("Correo electrónico enviado correctamente");
+    return NextResponse.json("Correo electrónico enviado correctamente", {
+      status: 200,
+      headers: {
+        'Access-Control-Allow-Origin': '*',
+        'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE, OPTIONS',
+        'Access-Control-Allow-Headers': 'Content-Type, Authorization',
+      },
+    });
   } catch (error) {
     console.error("Error al enviar el correo electrónico:", error);
     return NextResponse.json(
