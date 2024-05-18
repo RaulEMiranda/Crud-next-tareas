@@ -1,0 +1,41 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@keyframes dropdown {
+  0% {
+    transform: translateY(-100vh);
+  }
+
+  100% {
+    transform: translateY(0);
+  }
+}
+
+@layer components {
+  .animation_dropdown {
+    animation: dropdown 0.3s normal ease-in-out;
+  }
+}
+
+.navBar {
+  position: fixed;
+  visibility: hidden;
+  height: 100vh;
+  top: 3rem;
+  z-index: 999;
+  transition: top 0.5s ease;
+  
+}
+
+.navBarVisible {
+  visibility: visible;
+  top: 40rem; 
+}
+
+@media (min-width: 768px) {
+  .navBar {
+    position: static;
+    top: 0;
+  }
+}

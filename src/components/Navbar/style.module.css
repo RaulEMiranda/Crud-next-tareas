@@ -1,0 +1,13 @@
+.navBar {
+  position: fixed;
+  top: -500px;
+  transform: scale(5);
+}
+
+
+@media (min-width: 768px) {
+  .navBar {
+    position: relative;
+    top: 0;
+  }
+}
