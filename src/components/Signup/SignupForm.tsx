@@ -25,10 +25,10 @@ export const SignupForm = () => {
   const onSubmit: SubmitHandler<FormData> = async (data) => {
     try {
       setEmailError(false)
-      // await axios.post(`/api/sendEmailToUser`, {
-      //   email: data.email,
-      //   name: data.name,
-      // });
+      await axios.post(`${process.env.VERCEL_API_URL}/api/sendEmailToUser`, {
+        email: data.email,
+        name: data.name,
+      });
       const res = await axios.post(`${process.env.VERCEL_API_URL}/api/auth/register`, data);
 
       if (res.status === 200) {
