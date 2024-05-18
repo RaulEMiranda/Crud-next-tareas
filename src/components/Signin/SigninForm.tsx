@@ -34,6 +34,8 @@ export const SigninForm = () => {
         router.refresh();
       }
     } catch (error) {
+      console.log("hola");
+      
       console.log(error);
       setemailNoRegistered("Email no registrado");
     }
