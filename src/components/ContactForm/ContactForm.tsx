@@ -19,7 +19,7 @@ export const ContactForm = () => {
   const router = useRouter();
 
   const onSubmit: SubmitHandler<FormData> = async (data) => {
-    const res = await axios.post(`/api/sendEmailToOwner`, data);
+    const res = await axios.post(`${process.env.VERCEL_API_URL}/api/sendEmailToOwner`, data);
     console.log(res);
     
     if (res.status === 200) {
