@@ -24,7 +24,7 @@ export const SigninForm = () => {
     setemailNoRegistered("");
     try {
       console.log(data);
-      const res = await axios.post("/api/auth/login", data);
+      const res = await axios.post(`${process.env.VERCEL_API_URL}/api/auth/login`, data);
       console.log(res);
       if (res.status === 401) {
         alert("Usuario o contraseña incorrectos");
