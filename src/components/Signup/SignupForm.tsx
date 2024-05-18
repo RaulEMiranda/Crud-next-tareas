@@ -25,11 +25,11 @@ export const SignupForm = () => {
   const onSubmit: SubmitHandler<FormData> = async (data) => {
     try {
       setEmailError(false)
-      await axios.post(`${process.env.VERCEL_API_URL}/api/sendEmailToUser`, {
+      await axios.post(`${process.env.NEXT_PUBLIC_VERCEL_API_URL}/api/sendEmailToUser`, {
         email: data.email,
         name: data.name,
       });
-      const res = await axios.post(`${process.env.VERCEL_API_URL}/api/auth/register`, data);
+      const res = await axios.post(`${process.env.NEXT_PUBLIC_VERCEL_API_URL}/api/auth/register`, data);
 
       if (res.status === 200) {
         router.push("/inicio");
