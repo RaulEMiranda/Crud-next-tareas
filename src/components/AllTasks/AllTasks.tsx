@@ -18,6 +18,8 @@ export const AllTasks = () => {
 
   const getTasks = async () => {
     try {
+      console.log(`${process.env.NEXT_PUBLIC_VERCEL_API_URL}/api/tasks/tasksByUser`);
+      
       const res = await axios.get(`${process.env.NEXT_PUBLIC_VERCEL_API_URL}/api/tasks/tasksByUser`);
       setTasks(res.data);
     } catch (error) {
