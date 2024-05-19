@@ -37,7 +37,7 @@ export async function GET(req: NextRequest) {
   } catch (error) {
     return NextResponse.json(
       {
-        error: "Error al enviar las tareas",
+        message: "Error al enviar las tareas",
       },
       {
         status: 500,
