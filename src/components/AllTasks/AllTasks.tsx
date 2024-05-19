@@ -18,7 +18,11 @@ export const AllTasks = () => {
 
   const getTasks = async () => {
     try {
-      const res = await axios.get(`${process.env.NEXT_PUBLIC_VERCEL_API_URL}/api/tasks/tasksByUser`);
+      const res = await axios.get(`${process.env.NEXT_PUBLIC_VERCEL_API_URL}/api/tasks/tasksByUser`, {
+        headers: {
+          'Access-Control-Allow-Origin': '*',
+        },
+      });
       setTasks(res.data);
     } catch (error) {
       console.error("Error fetching tasks:", error);

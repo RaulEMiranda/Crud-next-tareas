@@ -14,7 +14,7 @@ export const AuthInicio = () => {
   useEffect(() => {
     const getUser = async () => {
       const response = await axios.get(
-        "http://localhost:3000/api/auth/profile"
+       `${process.env.NEXT_PUBLIC_VERCEL_API_URL}/api/auth/profile`
       );
       if(response.status === 200) {
         setuser(response.data);
