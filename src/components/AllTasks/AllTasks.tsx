@@ -23,7 +23,7 @@ export const AllTasks = () => {
       const res = await axios.get(`${process.env.NEXT_PUBLIC_VERCEL_API_URL}/api/tasks/tasksByUser`);
       setTasks(res.data);
     } catch (error) {
-      console.error(error);
+      console.log(error);
       alert("Hubo un problema al cargar las tareas. Por favor, inténtalo de nuevo más tarde.");
     } finally {
       setLoading(false);
