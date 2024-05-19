@@ -15,12 +15,17 @@ const transporter = nodemailer.createTransport({
     user: process.env.NODEMAILER_EMAIL,
     pass: process.env.NODEMAILER_PASSWORD,
   },
+  tls: {
+    rejectUnauthorized: false,
+  },
+  connectionTimeout: 10000,
+  greetingTimeout: 10000,
+  socketTimeout: 10000,
 });
 
 export async function sendEmail({ to, subject, text, html }: EmailOptions) {
-
   console.log(process.env.NODEMAILER_EMAIL, process.env.NODEMAILER_PASSWORD);
-  
+
   try {
     await transporter.sendMail({
       from: `"Ordena tus Ideas" <${process.env.NODEMAILER_EMAIL}>`,
