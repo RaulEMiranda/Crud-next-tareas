@@ -1,19 +1,9 @@
 import { NextResponse, NextRequest } from "next/server";
 import { jwtVerify } from "jose";
 
-const corsOptions = {
-  'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE, OPTIONS',
-  'Access-Control-Allow-Headers': 'Content-Type, Authorization',
-  'Access-Control-Allow-Origin': '*', // Permitir cualquier origen
-};
-
 export async function middleware(req: NextRequest) {
   const tokenJWT = req.cookies.get("tokenSession")?.value;
   const path = req.nextUrl.pathname;
-
-  if (req.method === 'OPTIONS') {
-    return NextResponse.json({}, { headers: corsOptions });
-  }
 
   if (
     !tokenJWT &&
@@ -42,12 +32,6 @@ export async function middleware(req: NextRequest) {
       return NextResponse.redirect(new URL("/signin", req.url));
     }
   }
-
-  const response = NextResponse.next();
-
-  Object.entries(corsOptions).forEach(([key, value]) => {
-    response.headers.set(key, value);
-  });
 
   return NextResponse.next();
 }
