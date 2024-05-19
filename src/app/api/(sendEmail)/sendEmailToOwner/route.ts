@@ -38,10 +38,10 @@ export async function POST(req: NextRequest, res: NextResponse) {
       },
     });
   } catch (error) {
-    console.error("Error al enviar el correo electrónico:", error);
+
     return NextResponse.json(
       {
-        error: error,
+        message: "Error al enviar el email",
       },
       {
         status: 500,
