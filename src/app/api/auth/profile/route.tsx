@@ -5,11 +5,13 @@ import jwt, { JwtPayload } from "jsonwebtoken";
 export async function GET(req: NextRequest, res: NextResponse) {
   try {
     const cookie = cookies().get("tokenSession")?.value;
+    console.log(cookie);
+    
 
     if (!cookie) {
       return NextResponse.json(
         {
-          message: "Unauthorized",
+          message: "No has iniciado sesion",
         },
         {
           status: 401,
