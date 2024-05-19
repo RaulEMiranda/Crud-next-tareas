@@ -23,7 +23,7 @@ export async function GET() {
   } catch (error) {
     return NextResponse.json(
       {
-        error: error,
+        message: "No hemos encontrado tareas",
       },
       {
         status: 500,
