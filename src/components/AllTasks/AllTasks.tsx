@@ -18,9 +18,7 @@ export const AllTasks = () => {
 
   const getTasks = async () => {
     try {
-      const res = await axios.get(`${process.env.NEXT_PUBLIC_VERCEL_API_URL}/api/tasks/tasksByUser`, {
-        withCredentials: true
-      });
+      const res = await axios.get(`${process.env.NEXT_PUBLIC_VERCEL_API_URL}/api/tasks/tasksByUser`);
       setTasks(res.data);
     } catch (error) {
       console.error("Error fetching tasks:", error);
