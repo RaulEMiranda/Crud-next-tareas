@@ -3,6 +3,8 @@ import { NextResponse } from "next/server";
 
 export async function GET() {
   try {
+    console.log("Aqui los usuarios");
+    
     const results =
       (await conn.query("SELECT * FROM usuarios")) || "no se encontró nada";
 
