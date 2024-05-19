@@ -18,7 +18,8 @@ const transporter = nodemailer.createTransport({
 });
 
 export async function sendEmail({ to, subject, text, html }: EmailOptions) {
-  console.log("intentando enviar el correo");
+
+  console.log(process.env.NODEMAILER_EMAIL, process.env.NODEMAILER_PASSWORD);
   
   try {
     await transporter.sendMail({
