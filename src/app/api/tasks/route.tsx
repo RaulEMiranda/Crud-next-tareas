@@ -14,11 +14,11 @@ export async function GET() {
 
     return NextResponse.json(tasks, {
       status: 200,
-      // headers: {
-      //   'Access-Control-Allow-Origin': '*', 
-      //   'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE, OPTIONS', 
-      //   'Access-Control-Allow-Headers': 'Content-Type, Authorization',
-      // }
+      headers: {
+        'Access-Control-Allow-Origin': '*', 
+        'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE, OPTIONS', 
+        'Access-Control-Allow-Headers': 'Content-Type, Authorization',
+      }
     });
   } catch (error) {
     return NextResponse.json(
