@@ -1,24 +1,19 @@
 import { NextResponse, NextRequest } from "next/server";
-import { jwtVerify, JWTPayload } from "jose";
-import { match } from "assert";
-import NextCors from "nextjs-cors";
+import { jwtVerify } from "jose";
+
+const corsOptions = {
+  'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE, OPTIONS',
+  'Access-Control-Allow-Headers': 'Content-Type, Authorization',
+  'Access-Control-Allow-Origin': '*', // Permitir cualquier origen
+};
 
 export async function middleware(req: NextRequest) {
-  const response = NextResponse.next();
-
-  
-  response.headers.set("Access-Control-Allow-Origin", "*"); // replace this your actual origin
-  response.headers.set(
-    "Access-Control-Allow-Methods",
-    "GET,DELETE,PATCH,POST,PUT"
-  );
-  response.headers.set(
-    "Access-Control-Allow-Headers",
-    "X-CSRF-Token, X-Requested-With, Accept, Accept-Version, Content-Length, Content-MD5, Content-Type, Date, X-Api-Version"
-  );
-
   const tokenJWT = req.cookies.get("tokenSession")?.value;
   const path = req.nextUrl.pathname;
+
+  if (req.method === 'OPTIONS') {
+    return NextResponse.json({}, { headers: corsOptions });
+  }
 
   if (
     !tokenJWT &&
@@ -42,13 +37,19 @@ export async function middleware(req: NextRequest) {
         new TextEncoder().encode(process.env.SECRET)
       );
 
-      return response;
+      return NextResponse.next();
     } catch (error) {
       return NextResponse.redirect(new URL("/signin", req.url));
     }
   }
 
-  return response;
+  const response = NextResponse.next();
+
+  Object.entries(corsOptions).forEach(([key, value]) => {
+    response.headers.set(key, value);
+  });
+
+  return NextResponse.next();
 }
 
 export const config = {
