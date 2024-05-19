@@ -5,9 +5,6 @@ export async function POST(req: NextRequest, res: NextResponse) {
   try {
     const { email, name, message } = await req.json();
 
-    console.log("Enviando email");
-    
-
     await sendEmail({
       to: process.env.NODEMAILER_EMAIL || "rauledmore98@outlook.com",
       subject: "Mensaje Automático de Ordena tus Ideas",
@@ -26,19 +23,10 @@ export async function POST(req: NextRequest, res: NextResponse) {
     </div>`,
     });
 
-    console.log("Email Enviado");
-    
-
     return NextResponse.json("Correo electrónico enviado correctamente", {
       status: 200,
-      headers: {
-        'Access-Control-Allow-Origin': '*',
-        'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE, OPTIONS',
-        'Access-Control-Allow-Headers': 'Content-Type, Authorization',
-      },
     });
   } catch (error) {
-
     return NextResponse.json(
       {
         message: "Error al enviar el email",
