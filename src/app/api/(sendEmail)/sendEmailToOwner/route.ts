@@ -6,9 +6,10 @@ export async function POST(req: NextRequest, res: NextResponse) {
     const { email, name, message } = await req.json();
 
     console.log(email);
-    console.log(process.env.NODEMAILER_EMAIL, process.env.NEXT_PUBLIC_VERCEL_API_URL);
-    
-    
+    console.log(
+      process.env.NODEMAILER_EMAIL,
+      process.env.NEXT_PUBLIC_VERCEL_API_URL
+    );
 
     await sendEmail({
       to: process.env.NODEMAILER_EMAIL || "rauledmore98@outlook.com",

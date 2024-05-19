@@ -18,9 +18,11 @@ const transporter = nodemailer.createTransport({
 });
 
 export async function sendEmail({ to, subject, text, html }: EmailOptions) {
+  console.log("intentando enviar el correo");
+  
   try {
     await transporter.sendMail({
-      from: process.env.NODEMAILER_EMAIL,
+      from: `"Ordena tus Ideas" <${process.env.NODEMAILER_EMAIL}>`,
       to,
       subject,
       text,
