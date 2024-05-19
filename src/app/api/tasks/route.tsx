@@ -10,9 +10,9 @@ interface Tarea {
 
 export async function GET() {
   try {
-    const tasks = await conn.query("SELECT * FROM tareas");
+   // const tasks = await conn.query("SELECT * FROM tareas");
 
-    return NextResponse.json(tasks, {
+    return NextResponse.json("tasks", {
       status: 200,
       headers: {
         'Access-Control-Allow-Origin': '*', 
