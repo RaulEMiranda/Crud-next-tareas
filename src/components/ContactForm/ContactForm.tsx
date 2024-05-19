@@ -21,7 +21,7 @@ export const ContactForm = () => {
   const onSubmit: SubmitHandler<FormData> = async (data) => {
     try {
       console.log(process.env.NEXT_PUBLIC_VERCEL_API_URL || "Hola?");
-      console.log("Hola como estás");
+      console.log(data);
       
       const res = await axios.post(
         `${process.env.NEXT_PUBLIC_VERCEL_API_URL}/api/sendEmailToOwner`,

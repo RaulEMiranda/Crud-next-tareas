@@ -10,6 +10,8 @@ interface Tarea {
 
 export async function GET() {
   try {
+    console.log("hola");
+    
     const tasks = await conn.query("SELECT * FROM tareas");
 
     return NextResponse.json(tasks, {
