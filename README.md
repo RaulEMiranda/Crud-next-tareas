@@ -1,38 +1,70 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# CRUD de Tareas
 
-## Getting Started
+Esta es una aplicación CRUD (Crear, Leer, Actualizar, Eliminar) que te permite gestionar tareas.
 
-First, run the development server:
+## Características
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+- **Crear una cuenta**: Regístrate para poder acceder a las funcionalidades de la aplicación.
+- **Iniciar sesión**: Accede a tu cuenta para gestionar tus tareas.
+- **Agregar tareas**: Crea nuevas tareas para mantener un registro de lo que necesitas hacer.
+- **Leer tareas**: Visualiza todas tus tareas en una lista ordenada.
+- **Actualizar tareas**: Edita las tareas existentes para mantener tu lista actualizada.
+- **Eliminar tareas**: Elimina las tareas que ya no necesites.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Tecnologías Utilizadas
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- Next.js
+- MySQL
+- serverless-mysql
+- Axios
+- Jose
+- jsonwebtoken
+- React Hook Form
+- Nodemailer
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+## Instalación
 
-## Learn More
+1. Clona el repositorio:
 
-To learn more about Next.js, take a look at the following resources:
+   ```bash
+   git clone https://github.com/Kakaroto1492/Crud-next-tareas.git
+   cd tu-repositorio
+   ```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+2. Instala las dependencias:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+   ```bash
+   npm install
+   # o
+   yarn install
+   ```
 
-## Deploy on Vercel
+3. Configura las variables de entorno:
+   Crea un archivo `.env` en la raíz del proyecto y añade las siguientes variables:
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+   ```env
+   SECRET=tu_secreto
+   DB_HOST=tu_host_de_base_de_datos
+   DB_USER=tu_usuario_de_base_de_datos
+   DB_PASSWORD=tu_contraseña_de_base_de_datos
+   DB_NAME=tu_nombre_de_base_de_datos
+   ```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
-# Crud-next-tareas
-# Crud-next-tareas
+4. Inicia la aplicación:
+   ```bash
+   npm run dev
+   # o
+   yarn dev
+   ```
+
+## Uso
+
+1. Abre tu navegador y ve a `http://localhost:3000`.
+2. Regístrate para crear una cuenta.
+3. Inicia sesión con tu nueva cuenta.
+4. Empieza a agregar, actualizar, leer y eliminar tus tareas.
+
+## Middleware de Protección de Rutas
+
+La aplicación utiliza un middleware de Next.js para proteger las rutas. Solo los usuarios autenticados pueden acceder a las páginas CRUD. Si intentas acceder a una página protegida sin estar autenticado, serás redirigido a la página de inicio de sesión.
+
