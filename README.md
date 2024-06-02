@@ -1,6 +1,6 @@
 # CRUD de Tareas
 
-Esta es una aplicación CRUD (Crear, Leer, Actualizar, Eliminar) que te permite gestionar tareas.
+Este es una aplicación CRUD (Crear, Leer, Actualizar, Eliminar) que te permite gestionar tareas.
 
 ## Características
 
