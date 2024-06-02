@@ -27,7 +27,7 @@ Esta es una aplicación CRUD (Crear, Leer, Actualizar, Eliminar) que te permite 
 1. Clona el repositorio:
 
    ```bash
-   git clone https://github.com/Kakaroto1492/Crud-next-tareas.git
+   git clone https://github.com/RaulEMiranda/Crud-next-tareas.git
    cd tu-repositorio
    ```
 
